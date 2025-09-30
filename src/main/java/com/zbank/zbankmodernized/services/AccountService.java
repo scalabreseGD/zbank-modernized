@@ -1,4 +1,3 @@
-
 package com.zbank.zbankmodernized.services;
 
 import com.zbank.zbankmodernized.models.Account;
@@ -16,22 +15,18 @@ public class AccountService {
     private AccountRepository accountRepository;
 
     public List<Account> getAllAccounts() {
-        // Placeholder for listing all accounts
         return accountRepository.findAll();
     }
 
     public Optional<Account> getAccountById(Long id) {
-        // Placeholder for finding an account by ID
         return accountRepository.findById(id);
     }
 
     public Account createAccount(Account account) {
-        // Placeholder for creating a new account
         return accountRepository.save(account);
     }
 
     public Account updateAccount(Long id, Account accountDetails) {
-        // Placeholder for updating an existing account
         Account account = accountRepository.findById(id).orElseThrow(() -> new RuntimeException("Account not found"));
         account.setAccountNumber(accountDetails.getAccountNumber());
         account.setAccountType(accountDetails.getAccountType());
@@ -40,7 +35,6 @@ public class AccountService {
     }
 
     public void deleteAccount(Long id) {
-        // Placeholder for deleting an account
         accountRepository.deleteById(id);
     }
 }
