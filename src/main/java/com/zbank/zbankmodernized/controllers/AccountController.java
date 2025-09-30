@@ -1,4 +1,3 @@
-
 package com.zbank.zbankmodernized.controllers;
 
 import com.zbank.zbankmodernized.models.Account;
@@ -18,13 +17,11 @@ public class AccountController {
 
     @GetMapping
     public List<Account> getAllAccounts() {
-        // Placeholder
         return accountService.getAllAccounts();
     }
 
     @GetMapping("/{id}")
     public ResponseEntity<Account> getAccountById(@PathVariable Long id) {
-        // Placeholder
         return accountService.getAccountById(id)
                 .map(ResponseEntity::ok)
                 .orElse(ResponseEntity.notFound().build());
@@ -32,13 +29,11 @@ public class AccountController {
 
     @PostMapping
     public Account createAccount(@RequestBody Account account) {
-        // Placeholder
         return accountService.createAccount(account);
     }
 
     @PutMapping("/{id}")
     public ResponseEntity<Account> updateAccount(@PathVariable Long id, @RequestBody Account accountDetails) {
-        // Placeholder
         try {
             return ResponseEntity.ok(accountService.updateAccount(id, accountDetails));
         } catch (RuntimeException e) {
@@ -48,7 +43,6 @@ public class AccountController {
 
     @DeleteMapping("/{id}")
     public ResponseEntity<Void> deleteAccount(@PathVariable Long id) {
-        // Placeholder
         accountService.deleteAccount(id);
         return ResponseEntity.noContent().build();
     }
